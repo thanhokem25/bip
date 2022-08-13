@@ -656,7 +656,7 @@ class Tool:
 def spoof_useragents():
 	spoof_ip = []
 	ip = []
-	ip1, ip2, ip3, ip4 = random.randint(100,255), random.randint(100,255), random.randint(100,255), random.randint(100,255)
+	ip1, ip2, ip3, ip4 = random.randint(1,255), random.randint(1,255), random.randint(1,255), random.randint(1,255)
 	ip.append(ip1), ip.append(ip2), ip.append(ip3), ip.append(ip4)
 
 	IP = str(ip[0])+"."+str(ip[1])+"."+str(ip[2])+"."+str(ip[3])
