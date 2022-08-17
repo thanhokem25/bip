@@ -86,10 +86,12 @@ proxy = proxy.split(':');
 var req = http.get({
         host: proxy[0],
         port: proxy[1],
-        timeout: 10000,
+        timeout: 1000,
         method: "CONNECT",
         agent: keepAliveAgent,
         path: parsed.host + ":443"
+        path: parsed.host + ":80"
+        path: parsed.host + ":403"
         });
         req.end();
         req.on('connect', (_, socket) =>  {
@@ -104,7 +106,7 @@ var req = http.get({
 setInterval(Runner)
 setTimeout(function(){
     process.exit();
-}, process.argv[3] * 10000);
+}, process.argv[3] * 1000);
 process.on('uncaughtException', function(er) {
 });
 process.on('unhandledRejection', function(er) {
